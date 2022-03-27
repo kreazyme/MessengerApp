@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:kreazy_chat/google_signin.dart';
+import 'package:kreazy_chat/screen/list_chat_screen.dart';
 import 'package:kreazy_chat/value/colors.dart';
 
 Future<void> main() async {
@@ -178,8 +181,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 30,
                 width: 30,
                 child: GestureDetector(
-                  onTap: () {
-                    print("Tap nè");
+                  onTap: () async {
+                    FirebaseService service = new FirebaseService();
+                    await service.signInwithGoogle();
+                    User? user = FirebaseAuth.instance.currentUser;
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ListChatScreen(
+                                  url: user!.photoURL!.toString(),
+                                  username: user.email.toString(),
+                                )));
                   },
                   child: Image.asset("asset/images/gg.jpg"),
                 ),
