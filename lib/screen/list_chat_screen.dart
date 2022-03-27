@@ -17,47 +17,87 @@ class _ListChatScreenState extends State<ListChatScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Messenger nè"),
-        // actions: [
-
-        // ],
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.add,
+                  size: 28,
+                )),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 8),
+            child: IconButton(
+                onPressed: () {},
+                icon: CircleAvatar(
+                  radius: 50,
+                  child: Image(image: NetworkImage(widget.url)),
+                )),
+          )
+        ],
       ),
-      body: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-        stream: FirebaseFirestore.instance
-            .collection(widget.username)
-            .snapshots(),
-        builder: (_, snapshot) {
-          if (snapshot.hasError) {
-            return Text("Error while load data");
-          }
-          if (snapshot.hasData) {
-            final docs = snapshot.data!.docs;
-            if (docs.length == 0) {
-              return Text("Dont have chat");
+      body: SizedBox(
+        height: double.infinity,
+        child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
+          stream: FirebaseFirestore.instance
+              .collection(widget.username)
+              .snapshots(),
+          builder: (_, snapshot) {
+            if (snapshot.hasError) {
+              return Text("Error while load data");
             }
-            return Expanded(
-              child: ListView.builder(
+            if (snapshot.hasData) {
+              final docs = snapshot.data!.docs;
+              if (docs.length == 0) {
+                return Text("Dont have chat");
+              }
+              return ListView.builder(
                   itemCount: docs.length,
                   itemBuilder: (_, i) {
                     final data = docs[i].data();
                     String name = data['name'];
                     String ava = name.substring(0, 1);
                     return Container(
+                      padding: const EdgeInsets.all(12),
                       child: Row(children: [
-                        Text(
-                          ava,
-                          style: TextStyle(
-                            fontSize: 30,
+                        Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                              // shape: CircleBorder,
+
+                              border: Border.all(
+                                  width: 2, color: Colors.transparent),
+                              color: Colors.purple,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(100))),
+                          child: Center(
+                            child: Text(
+                              ava,
+                              style: TextStyle(
+                                  fontSize: 34,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black38),
+                            ),
                           ),
                         ),
-                        Text(name)
+                        Container(
+                            padding: const EdgeInsets.all(12),
+                            child: Text(
+                              name,
+                              style: TextStyle(
+                                  fontSize: 28, fontWeight: FontWeight.w400),
+                            ))
                       ]),
                     );
-                  }),
-            );
-          } else {
-            return Container();
-          }
-        },
+                  });
+            } else {
+              return Container();
+            }
+          },
+        ),
       ),
     );
   }
