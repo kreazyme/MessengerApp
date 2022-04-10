@@ -60,164 +60,168 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: Column(children: [
-        Container(
-          width: double.infinity,
-          child: Image.asset("asset/images/background.png"),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 60, left: 24, right: 24),
-          child: TextField(
-            style: TextStyle(fontSize: 24),
-            decoration: InputDecoration(
-                hintText: "Username",
-                prefixIcon: Icon(
-                  Icons.person,
-                  color: Colors.grey,
-                ),
-                focusedBorder: const OutlineInputBorder(
-                    borderSide:
-                        BorderSide(color: AppColors.primaryColor, width: 2),
-                    borderRadius: BorderRadius.all(Radius.circular(40))),
-                hintStyle: TextStyle(fontSize: 20),
-                filled: true,
-                fillColor: AppColors.primaryColor,
-                enabledBorder: const OutlineInputBorder(
-                    borderSide:
-                        BorderSide(color: AppColors.primaryColor, width: 2),
-                    borderRadius: BorderRadius.all(Radius.circular(40)))),
+      body: Container(
+        color: Colors.white,
+        child: Column(children: [
+          Container(
+            width: double.infinity,
+            child: Image.asset("asset/images/background.png"),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 20, left: 24, right: 24),
-          child: TextField(
-            style: TextStyle(fontSize: 24),
-            decoration: InputDecoration(
-                suffixIcon: Icon(
-                  Icons.remove_red_eye,
-                  color: Colors.grey,
-                ),
-                hintText: "Password",
-                prefixIcon: Icon(
-                  Icons.lock_outline,
-                  color: Colors.grey,
-                ),
-                focusedBorder: const OutlineInputBorder(
-                    borderSide:
-                        BorderSide(color: AppColors.primaryColor, width: 2),
-                    borderRadius: BorderRadius.all(Radius.circular(40))),
-                hintStyle: TextStyle(fontSize: 20),
-                filled: true,
-                fillColor: AppColors.primaryColor,
-                enabledBorder: const OutlineInputBorder(
-                    borderSide:
-                        BorderSide(color: AppColors.primaryColor, width: 2),
-                    borderRadius: BorderRadius.all(Radius.circular(40)))),
-          ),
-        ),
-        Container(
-          width: 250,
-          height: 100,
-          child: Padding(
-            padding: const EdgeInsets.all(24),
-            child: OutlineButton(
-              onPressed: () {},
-              child: Text(
-                "Login",
-                style: TextStyle(fontSize: 36, color: AppColors.mainColor),
-              ),
-              focusColor: AppColors.primaryColor,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(40)),
-              borderSide: BorderSide(color: AppColors.primaryColor),
-              color: AppColors.primaryColor,
+          Padding(
+            padding: const EdgeInsets.only(top: 60, left: 24, right: 24),
+            child: TextField(
+              style: TextStyle(fontSize: 24),
+              decoration: InputDecoration(
+                  hintText: "Username",
+                  prefixIcon: Icon(
+                    Icons.person,
+                    color: Colors.grey,
+                  ),
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: AppColors.primaryColor, width: 2),
+                      borderRadius: BorderRadius.all(Radius.circular(40))),
+                  hintStyle: TextStyle(fontSize: 20),
+                  filled: true,
+                  fillColor: AppColors.primaryColor,
+                  enabledBorder: const OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: AppColors.primaryColor, width: 2),
+                      borderRadius: BorderRadius.all(Radius.circular(40)))),
             ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 24),
-          child: Row(
+          Padding(
+            padding: const EdgeInsets.only(top: 20, left: 24, right: 24),
+            child: TextField(
+              style: TextStyle(fontSize: 24),
+              decoration: InputDecoration(
+                  suffixIcon: Icon(
+                    Icons.remove_red_eye,
+                    color: Colors.grey,
+                  ),
+                  hintText: "Password",
+                  prefixIcon: Icon(
+                    Icons.lock_outline,
+                    color: Colors.grey,
+                  ),
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: AppColors.primaryColor, width: 2),
+                      borderRadius: BorderRadius.all(Radius.circular(40))),
+                  hintStyle: TextStyle(fontSize: 20),
+                  filled: true,
+                  fillColor: AppColors.primaryColor,
+                  enabledBorder: const OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: AppColors.primaryColor, width: 2),
+                      borderRadius: BorderRadius.all(Radius.circular(40)))),
+            ),
+          ),
+          Container(
+            width: 250,
+            height: 100,
+            child: Padding(
+              padding: const EdgeInsets.all(24),
+              child: OutlineButton(
+                onPressed: () {},
+                child: Text(
+                  "Login",
+                  style: TextStyle(fontSize: 36, color: AppColors.mainColor),
+                ),
+                focusColor: AppColors.primaryColor,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(40)),
+                borderSide: BorderSide(color: AppColors.primaryColor),
+                color: AppColors.primaryColor,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 24),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Container(
+                    height: 2,
+                    width: 60,
+                    color: Colors.grey,
+                  ),
+                ),
+                const Text(
+                  "OR",
+                  style: TextStyle(fontSize: 20, color: Colors.grey),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Container(
+                    height: 2,
+                    width: 60,
+                    color: Colors.grey,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(12),
-                child: Container(
-                  height: 2,
-                  width: 60,
-                  color: Colors.grey,
-                ),
-              ),
-              const Text(
-                "OR",
-                style: TextStyle(fontSize: 20),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(12),
-                child: Container(
-                  height: 2,
-                  width: 60,
-                  color: Colors.grey,
-                ),
-              ),
-            ],
-          ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              height: 30,
-              width: 30,
-              child: GestureDetector(
-                onTap: () {},
-                child: Image.asset("asset/images/ff.png"),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 24,
-              ),
-              child: Container(
+              Container(
                 height: 30,
                 width: 30,
                 child: GestureDetector(
-                  onTap: () async {
-                    FirebaseService service = new FirebaseService();
-                    await service.signInwithGoogle();
-                    User? user = FirebaseAuth.instance.currentUser;
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ListChatScreen(
-                                  url: user!.photoURL!.toString(),
-                                  username: user.email.toString(),
-                                )));
-                  },
-                  child: Image.asset("asset/images/gg.jpg"),
+                  onTap: () {},
+                  child: Image.asset("asset/images/ff.png"),
                 ),
               ),
-            )
-          ],
-        ),
-        Padding(
-          padding: const EdgeInsets.all(12),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Dont have account?",
-                style: TextStyle(fontSize: 18),
-              ),
-              TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Sign in",
-                    style: TextStyle(fontSize: 18, color: AppColors.mainColor),
-                  ))
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 24,
+                ),
+                child: Container(
+                  height: 30,
+                  width: 30,
+                  child: GestureDetector(
+                    onTap: () async {
+                      FirebaseService service = new FirebaseService();
+                      await service.signInwithGoogle();
+                      User? user = FirebaseAuth.instance.currentUser;
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ListChatScreen(
+                                    url: user!.photoURL!.toString(),
+                                    username: user.email.toString(),
+                                  )));
+                    },
+                    child: Image.asset("asset/images/gg.jpg"),
+                  ),
+                ),
+              )
             ],
           ),
-        )
-      ]),
+          Padding(
+            padding: const EdgeInsets.all(12),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Dont have account ?",
+                  style: TextStyle(fontSize: 18, color: Colors.grey),
+                ),
+                TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Sign in",
+                      style:
+                          TextStyle(fontSize: 18, color: AppColors.mainColor),
+                    ))
+              ],
+            ),
+          )
+        ]),
+      ),
       // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
